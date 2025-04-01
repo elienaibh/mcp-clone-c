@@ -1,16 +1,19 @@
-[![official JetBrains project](http://jb.gg/badges/incubator-flat-square.svg)](https://github.com/JetBrains#jetbrains-on-github)
-# JetBrains MCP Proxy Server
+# MCP Clone C
 
-The server proxies requests from client to JetBrains IDE.
+Este repositório é um clone do [JetBrains/mcp-jetbrains](https://github.com/JetBrains/mcp-jetbrains) que implementa um proxy MCP (Model Context Protocol) para a integração entre Claude e IDEs JetBrains.
 
-## Install MCP Server plugin
+## Sobre o JetBrains MCP Proxy Server
+
+O servidor atua como um proxy para redirecionar solicitações do cliente para IDEs JetBrains.
+
+## Instalação do Plugin MCP Server
 
 https://plugins.jetbrains.com/plugin/26071-mcp-server
 
-## Usage with Claude Desktop
+## Uso com Claude Desktop
 
-To use this with Claude Desktop, add the following to your `claude_desktop_config.json`.
-The full path on MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`, on Windows: `%APPDATA%/Claude/claude_desktop_config.json`.
+Para usar com o Claude Desktop, adicione o seguinte ao seu arquivo `claude_desktop_config.json`.
+O caminho completo no MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`, no Windows: `%APPDATA%/Claude/claude_desktop_config.json`.
 
 ```json
 {
@@ -23,30 +26,30 @@ The full path on MacOS: `~/Library/Application\ Support/Claude/claude_desktop_co
 }
 ```
 
-## Configuration
+## Configuração
 
-If you're running multiple IDEs with MCP server and want to connect to the specific one, add to the MCP server configuration:
+Se você estiver executando várias IDEs com o servidor MCP e quiser se conectar a uma específica, adicione à configuração do servidor MCP:
 ```json
 "env": {
-  "IDE_PORT": "<port of IDE's built-in webserver>"
+  "IDE_PORT": "<porta do servidor web embutido da IDE>"
 }
 ```
 
-By default, we connect to IDE on  127.0.0.1 but you can specify a different address/host:
+Por padrão, nos conectamos à IDE em 127.0.0.1, mas você pode especificar um endereço/host diferente:
 ```json
 "env": {
-  "HOST": "<host/address of IDE's built-in webserver>"
+  "HOST": "<host/endereço do servidor web embutido da IDE>"
 }
 ```
 
-To enable logging add:
+Para habilitar o logging, adicione:
 ```json
 "env": {
   "LOG_ENABLED": "true"
 }
 ```
 
-## How to build
-1. Tested on macOS
+## Como compilar
+1. Testado no macOS
 2. `brew install node pnpm`
-3. Run `pnpm build` to build the project
+3. Execute `pnpm build` para compilar o projeto
